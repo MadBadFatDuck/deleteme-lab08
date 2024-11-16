@@ -18,7 +18,7 @@ class TestDeathNote {
     DeathNote deathnote = new DeathNoteImplementation();
 
 
-    @Test
+    @Test   //1
     void testgetrules(){
        try {
          deathnote.getRule(0);
@@ -30,7 +30,7 @@ class TestDeathNote {
         }
     }
 
-    @Test
+    @Test   //2
     void testrules(){
         
         for (String s : DeathNote.RULES) {
@@ -40,7 +40,7 @@ class TestDeathNote {
 
      }
 
-     @Test
+     @Test  //3
      void testnames(){
 
         final String name = "Marco";
@@ -50,8 +50,14 @@ class TestDeathNote {
         assertFalse(deathnote.isNameWritten(""));
      }
 
-     @Test
-     void 
+     @Test  //4
+     void testcauseofdeath(){
+        final String cause = "Heart attack";
+        assertFalse(deathnote.isCauseOfDeathWritten(cause));
+        deathnote.writeCauseOfDeath(cause);
+        assertFalse(deathnote.isCauseOfDeathWritten("Covid"));
+        assertFalse(deathnote.isCauseOfDeathWritten(""));
+     }
  
 
 }
